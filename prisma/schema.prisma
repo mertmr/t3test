@@ -65,3 +65,11 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model Leave {
+  id        Int      @id @default(autoincrement())
+  name      String
+  startDate DateTime
+  endDate   DateTime
+  reason    String
+}
