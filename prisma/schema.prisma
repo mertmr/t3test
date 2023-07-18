@@ -2,14 +2,14 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-    provider = "prisma-client-js"
+    provider = "Fprisma-client-js"
     previewFeatures = ["jsonProtocol"]
 }
 
 datasource db {
-    provider = "mysql"
+    provider = "sqlite"
     url      = env("DATABASE_URL")
-    relationMode = "prisma"
+    //relationMode = "prisma"
 }
 
 model Example {

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { api } from "~/utils/api";
 import { toast } from "react-hot-toast";
 import { Leave } from "@prisma/client";
+import { Button } from "~/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "~/components/ui/card";
 
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "afrom Megrt" });
@@ -66,17 +68,15 @@ const Home: NextPage = () => {
               Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
             </h1>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-              <Link
-                className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-                href="https://create.t3.gg/en/usage/first-steps"
-                target="_blank"
-              >
-                <h3 className="text-2xl font-bold">First Steps →</h3>
-                <div className="text-lg">
-                  Just the basics - Everything you need to know to set up your
-                  database and authentication.
-                </div>
-              </Link>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Total Leave Balance</CardTitle>
+                  <CardDescription>Days</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p>14</p>
+                </CardContent>
+              </Card>
               <Link
                 className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
                 href="https://create.t3.gg/en/introduction"
@@ -145,12 +145,11 @@ const Home: NextPage = () => {
               className="w-full rounded-md border border-gray-300 px-3 py-2 shadow"
             />
           </div>
-          <button
+          <Button
             type="submit"
-            className="rounded-md bg-blue-500 px-4 py-2 text-white shadow hover:bg-blue-600"
-          >
-            Submit
-          </button>
+            className="rounded-md bg-blue-500 px-4 py-2 text-white shadow hover:bg-blue-600">
+            Submit Leave
+          </Button>
         </form>
         <h2 className="mb-4 text-2xl font-bold">Leaves</h2>
         {leaves && leaves.data ? (
